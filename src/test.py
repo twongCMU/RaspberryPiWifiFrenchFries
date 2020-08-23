@@ -3,13 +3,14 @@ import gevent
 import unicorn_driver
 
 WINDOW_SECONDS = 1
-s = stats.Stats(4, WINDOW_SECONDS)
+s = stats.Stats(10, WINDOW_SECONDS)
 
-u = unicorn_driver()
+u = unicorn_driver.UnicornDriver()
+
 
 while True:
     #sysload = s.get_load()
-    (net_sent, net_recv) = s.get_network("wlp2s0")
+    (net_sent, net_recv) = s.get_network("eth0")
     #temperature = s.get_temperature()
     #sysmem = s.get_memory_pct()
 
@@ -22,5 +23,9 @@ while True:
     #print("Net: in=" + str(in_mbit) + " out=" + str(out_mbit))
     #print("Temp: " + str(temperature))
 
-    u.set_network(net_sent, net_recv)
-    gevent.sleep(.25)
+    u.set_network(out_mbit, in_mbit)
+    u.refresh()
+
+    prev_sent = out_mbit
+    prev_recv = in_mbit
+    gevent.sleep(.1)

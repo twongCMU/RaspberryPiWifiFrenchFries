@@ -4,7 +4,8 @@ import psutil
 import subprocess
 
 #INTERFACES = ["eth0", "eth1", "wlan0", "wlan1"]
-INTERFACES = ["wlp2s0"]
+INTERFACES = ["eth0"]
+#INTERFACES = ["wlp2s0"]
 INTERFACES_FIELDS = ["bytes_sent", "bytes_recv"]
 
 BYTES_SENT = 0
