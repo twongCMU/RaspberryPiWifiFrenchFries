@@ -1,6 +1,8 @@
 # RaspberryPiWifiFrenchFries
 LED status bars for a Raspberry Pi OpenWRT router
 
+![Code in action](/img/animated.gif)
+
 ## Hardware:
   * Raspberry Pi 4B
   * Some kind of LED display
