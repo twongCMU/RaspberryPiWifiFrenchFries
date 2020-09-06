@@ -32,3 +32,9 @@ I finally got this to work after 3 days. Here are some steps. I'm not going to g
   * Chroot into the chroot system
   * install everything you need to run the Python code here. It should interface correctly with the LED display now
     * python3-venv python3-dev python3-wheel python-wheel-common libffi-dev make gcc
+  * create a Python virtual environment, activate it, and install some needed packages
+    * python3 -m venv venv
+    * source venv/bin/activate
+    * pip install wheel 
+    * pip install RPi.GPIO smbus unicornhat gevent psutil numpy
+  * in the virtual environment, run the test.py program
