@@ -11,12 +11,12 @@ LED status bars for a Raspberry Pi OpenWRT router. Red bars on the right are dow
   * Some LEGO to hold it all up
 
 ## Pros:
-  * Dual ethernet, no USB Ethernet dongle required. On a Pi4, I had to replug the USB Ethernet dongle every few days
-  * Pi4 is now supported by OpenWRT, which it wasn't in 2020 when I built the first version of this
+  * Dual ethernet, no USB Ethernet dongle required. On a Pi4 Model B, I had to replug the USB Ethernet dongle every few days
+  * Pi4 platform is now supported by OpenWRT, which it wasn't in 2020 when I built the first version of this
   * Large heatsink and thermal pads included in 52Pi Router Board package
   * Onboard Wifi is stable, which it wasn't in 2020 on the beta OpenWRT. It only seems to do 2.4ghz wifi but that's fine for my needs (my desktop is plugged into the ethernet, and my phones use wifi)
-  * The eMMC storage on the Pi CM4 is supposedly better than an SD card
+  * The eMMC storage on the Pi Compute Module 4 is supposedly better than an SD card
 
 ## Cons:
  * Getting OpenWRT installed was a huge pain and I had to recompile the OpenWRT image many times
- * As of mid 2022, getting a Pi CM4 is really difficult. I got one with 8GB of ram but 1GB is enough for everything I'm running and the 8GB model costs much more
+ * As of mid 2022, buying a Pi Compute Module 4 is really difficult as they are out of stock everywhere
