@@ -7,6 +7,8 @@ LED status bars for a Raspberry Pi OpenWRT router. Red bars on the right are dow
   * Raspberry Pi 4 Compute Module (Wifi, 8GB RAM, 16GB storage)
   * 52Pi Router Board https://wiki.52pi.com/index.php/EP-0146
   * Unicorn Hat Mini https://shop.pimoroni.com/products/unicorn-hat-mini?variant=31657688498259
+  * PiShop UPS Hat https://www.pishop.us/product/raspberry-pi-ups-hat/
+  * Some LEGO to hold it all up
 
 ## Pros:
   * Dual ethernet, no USB Ethernet dongle required. On a Pi4, I had to replug the USB Ethernet dongle every few days
