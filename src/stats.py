@@ -4,7 +4,7 @@ import psutil
 import subprocess
 
 #INTERFACES = ["eth0", "eth1", "wlan0", "wlan1"]
-INTERFACES = ["eth0"]
+INTERFACES = ["eth1"]
 #INTERFACES = ["wlp2s0"]
 INTERFACES_FIELDS = ["bytes_sent", "bytes_recv"]
 
@@ -15,6 +15,7 @@ MEM_PCT = 2
 
 class Stats:
     def __init__(self, samples_per_second, sample_window_seconds):
+        self._cpu_mhz = 0
         self._network_data = {}
         for i in INTERFACES:
             self._network_data[i] = {}
@@ -26,21 +27,13 @@ class Stats:
 
         self._event = gevent.spawn(self._update_network)
 
-    def get_load(self):
-        """
-        Returns:
-            an integer percentage for the 1 minute system load average
-        """
-        return round(os.getloadavg()[0] * 100)
-
-    def get_temperature(self):
-        ret = int(subprocess.check_output("cat /sys/class/thermal/thermal_zone0/temp").strip())
-        return round(float(ret)/100.0)
     
     def _update_network(self):
         """Update the network stats in the background
         """
         while True:
+            data = psutil.cpu_freq()
+            self._cpu_mhz = data.current
             data = psutil.net_io_counters(pernic=True)
             for interface in INTERFACES:
                 # append new data to the end of the list
@@ -67,6 +60,9 @@ class Stats:
         sent = self._network_data[iface]["bytes_sent"][-1] - self._network_data[iface]["bytes_sent"][0]
         return (sent, recv)
 
+    def get_cpu(self):
+        return self._cpu_mhz
+        
     def get_memory_pct(self):
         """
         Returns:
