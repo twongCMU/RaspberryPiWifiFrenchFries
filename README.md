@@ -1,5 +1,5 @@
 # RaspberryPiWifiFrenchFries
-LED status bars for a Raspberry Pi OpenWRT router. Red bars are download usage, green bars are uploads, and blue line is CPU clock speed. The video shows a speedtest.net run with a large download then a large upload sequence.
+LED status bars for a Raspberry Pi OpenWRT router. Red bars on the right are download usage, green bars in the center are uploads, and the blue bar on the left is CPU clock speed.
 
 ![Code in action](/img/animated2.gif)
 
