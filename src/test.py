@@ -65,7 +65,8 @@ while True:
 
     cpu_speed = s.get_cpu()
     u.set_cpu(cpu_speed)
-    
-    u.refresh()
+
+    if not u.is_network_display_disabled():
+        u.refresh()
 
     gevent.sleep(.1)

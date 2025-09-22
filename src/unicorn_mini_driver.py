@@ -104,21 +104,24 @@ class UnicornMiniDriver:
     def enable_network_display(self):
         self.unicornhatmini.set_rotation(90)
         self._disable_network_display = False
-        
+
+    def is_network_display_disabled(self):
+        return self._disable_network_display
+    
     def display_raw(self, data):
         with self._raw_lock:
             self._disable_network_display = True
             self.unicornhatmini.set_rotation(0)
         
             for i in range(self.COL_LENGTH):
-                print("")
+                #print("")
                 for j in range(self.ROW_LENGTH):
                     if data[i*self.ROW_LENGTH + j]:
-                        print("X",end='')
+                        #print("X",end='')
                         self.unicornhatmini.set_pixel(j, i, 0, 255, 0)
                     else:
-                        print(".",end='')
+                        #print(".",end='')
                         self.unicornhatmini.set_pixel(j, i, 0, 0, 0)
-            print("")
+            #print("")
             self.refresh()
                     
